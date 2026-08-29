@@ -1,0 +1,35 @@
+@font-face{
+  font-family: 'Thmanyah Serif Display';
+  src: url('../fonts/thmanyah-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Thmanyah Serif Display';
+  src: url('../fonts/thmanyah-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Thmanyah Serif Display';
+  src: url('../fonts/thmanyah-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Thmanyah Serif Display';
+  src: url('../fonts/thmanyah-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: 'Thmanyah Serif Display';
+  src: url('../fonts/thmanyah-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

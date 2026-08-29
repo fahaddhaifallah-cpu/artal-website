@@ -51,13 +51,47 @@
           <div class="c-row"><span class="lbl" data-en="Website">الموقع الإلكتروني</span><span class="val" dir="ltr">Artallaw.sa</span></div>
         </div>
       </div>
-      <form class="cform" onsubmit="event.preventDefault();">
-        <input type="text" placeholder="الاسم الكامل" data-ar-ph="الاسم الكامل" data-en-ph="Full name" required>
-        <input type="text" placeholder="رقم الجوال" data-ar-ph="رقم الجوال" data-en-ph="Mobile number" required>
-        <input type="email" placeholder="البريد الإلكتروني" data-ar-ph="البريد الإلكتروني" data-en-ph="Email address" required>
-        <textarea placeholder="اكتب رسالتك هنا" data-ar-ph="اكتب رسالتك هنا" data-en-ph="Write your message here"></textarea>
+      <form class="cform" id="contactForm" action="https://formspree.io/f/xrpgbonn" method="POST">
+        <input type="text" name="name" placeholder="الاسم الكامل" data-ar-ph="الاسم الكامل" data-en-ph="Full name" required>
+        <input type="text" name="phone" placeholder="رقم الجوال" data-ar-ph="رقم الجوال" data-en-ph="Mobile number" required>
+        <input type="email" name="email" placeholder="البريد الإلكتروني" data-ar-ph="البريد الإلكتروني" data-en-ph="Email address" required>
+        <textarea name="message" placeholder="اكتب رسالتك هنا" data-ar-ph="اكتب رسالتك هنا" data-en-ph="Write your message here" required></textarea>
         <button type="submit" data-en="Send request">إرسال الطلب</button>
+        <p id="formStatus" style="display:none; font-size:14px; margin-top:8px;"></p>
       </form>
+      <script>
+        (function(){
+          var form = document.getElementById('contactForm');
+          var status = document.getElementById('formStatus');
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            var data = new FormData(form);
+            fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            }).then(function(response){
+              if(response.ok){
+                var isEn = document.documentElement.getAttribute('lang') === 'en';
+                status.textContent = isEn ? 'Thank you, your message has been sent.' : 'شكراً لك، تم إرسال رسالتك بنجاح.';
+                status.style.color = '#2c5c42';
+                status.style.display = 'block';
+                form.reset();
+              } else {
+                var isEn2 = document.documentElement.getAttribute('lang') === 'en';
+                status.textContent = isEn2 ? 'Something went wrong. Please try again.' : 'حدث خطأ، الرجاء المحاولة مرة أخرى.';
+                status.style.color = '#a33';
+                status.style.display = 'block';
+              }
+            }).catch(function(){
+              var isEn3 = document.documentElement.getAttribute('lang') === 'en';
+              status.textContent = isEn3 ? 'Something went wrong. Please try again.' : 'حدث خطأ، الرجاء المحاولة مرة أخرى.';
+              status.style.color = '#a33';
+              status.style.display = 'block';
+            });
+          });
+        })();
+      </script>
     </div>
   </div>
 </section>

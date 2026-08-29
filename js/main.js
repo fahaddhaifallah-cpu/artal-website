@@ -3,9 +3,10 @@
   var langBtn = document.getElementById('langBtn');
   var menuBtn = document.querySelector('.menu-btn');
   var navLinks = document.querySelector('nav.links');
+  var STORAGE_KEY = 'artal-lang';
   var current = 'ar';
 
-  function setLanguage(lang){
+  function setLanguage(lang, skipSave){
     current = lang;
     htmlRoot.setAttribute('lang', lang);
     htmlRoot.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
@@ -32,7 +33,18 @@
     if(body.dataset.titleEn && body.dataset.titleAr){
       document.title = lang === 'en' ? body.dataset.titleEn : body.dataset.titleAr;
     }
+
+    if(!skipSave){
+      try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+    }
   }
+
+  try{
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if(saved === 'en' || saved === 'ar'){
+      setLanguage(saved, true);
+    }
+  }catch(e){}
 
   if(langBtn){
     langBtn.addEventListener('click', function(){

@@ -331,14 +331,20 @@
 
 @media (max-width: 560px){
   .hero .fold{
-    width:52px;
-    top:24px;
+    width:48px;
+    top:18px;
     left:16px;
+  }
+  .hero-inner{
+    padding-top:40px;
   }
   .page-hero .fold{
     width:46px;
-    top:22px;
+    top:16px;
     left:16px !important;
+  }
+  .page-hero-inner{
+    padding-top:38px;
   }
   .why-visual .fold{
     width:46px;

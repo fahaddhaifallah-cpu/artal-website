@@ -29,8 +29,13 @@
 
   /* corner-fold motif — actual brand icon image */
   .fold{
-    position:absolute; width:34px; height:auto;
-    opacity:.85;
+    position:absolute;
+    width:62px;
+    height:auto;
+    opacity:1;
+    object-fit:contain;
+    pointer-events:none;
+    user-select:none;
   }
 
   /* ---------- header ---------- */
@@ -74,7 +79,7 @@
     position:relative;
     overflow:hidden;
   }
-  .hero .fold{ color:var(--cream); top:48px; left:32px; }
+  .hero .fold{ width:72px; top:48px; left:32px; }
   .hero-inner{max-width:1120px; margin:0 auto; padding:0 32px; position:relative;}
   .eyebrow{
     font-size:14px; letter-spacing:.5px; color: var(--green-300);
@@ -204,7 +209,7 @@
     background:var(--green-950); border-radius:2px; padding:56px 44px;
     color:var(--cream); position:relative; overflow:hidden;
   }
-  .why-visual .fold{color:var(--cream); top:26px; right:26px;}
+  .why-visual .fold{width:54px; top:26px; right:26px;}
   .why-visual h3{font-family:var(--serif); font-size:26px; line-height:1.6; margin-bottom:24px;}
   .why-visual p{color:var(--green-300); font-size:15px;}
 
@@ -313,7 +318,7 @@
   position:relative;
   overflow:hidden;
 }
-.page-hero .fold{ color:var(--cream); top:32px; left:32px; }
+.page-hero .fold{ width:58px; top:32px; left:32px; }
 .page-hero-inner{max-width:1120px; margin:0 auto; padding:0 32px; position:relative;}
 .page-hero h1{
   font-family: var(--serif);
@@ -323,6 +328,24 @@
 }
 .crumb{font-size:13px; color:var(--green-300); margin-bottom:18px; display:flex; align-items:center; gap:8px;}
 .crumb a{opacity:.85;}
+
+@media (max-width: 560px){
+  .hero .fold{
+    width:52px;
+    top:24px;
+    left:16px;
+  }
+  .page-hero .fold{
+    width:46px;
+    top:22px;
+    left:16px !important;
+  }
+  .why-visual .fold{
+    width:46px;
+    top:20px;
+    right:20px;
+  }
+}
 .crumb a:hover{opacity:1;}
 
 /* ---------- mobile nav ---------- */

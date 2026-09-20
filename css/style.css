@@ -206,7 +206,7 @@
   .why-item span{font-size:16.5px; color:#293a2f;}
   .why-item small{font-size:13px; color:#5c6b60;}
   .why-visual{
-    background:var(--green-950); border-radius:2px; padding:56px 44px;
+    background:var(--green-950); border-radius:2px; padding:96px 44px 56px;
     color:var(--cream); position:relative; overflow:hidden;
   }
   .why-visual .fold{width:54px; top:26px; right:26px;}
@@ -350,6 +350,9 @@
     width:46px;
     top:20px;
     right:20px;
+  }
+  .why-visual{
+    padding:86px 28px 40px;
   }
 }
 .crumb a:hover{opacity:1;}
